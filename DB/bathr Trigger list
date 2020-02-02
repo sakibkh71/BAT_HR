@@ -1,0 +1,239 @@
+DROP TRIGGER IF EXISTS  `afr_ins_daily_achievement`$$
+
+CREATE
+    TRIGGER `afr_ins_daily_achievement` AFTER INSERT ON `bat_daily_kpi_achievements` 
+    FOR EACH ROW BEGIN
+
+/* return single row limit only for exception  SR Achievement*/
+UPDATE bat_kpi_target_detail SET target_achive=(IFNULL(target_achive,0)+new.daily_achievement) WHERE user_code=new.sr_user_code AND target_month=DATE_FORMAT(new.achievement_date,'%Y-%m') AND bat_kpi_id=new.bat_kpi_id AND target_type=new.target_type AND target_ref_id=new.target_ref_id LIMIT 1; 
+ 
+/* return single row limit only for exception SS Achievement */
+UPDATE bat_kpi_target_detail SET target_achive=(IFNULL(target_achive,0)+new.daily_achievement) WHERE user_code=new.ss_user_code AND target_month=DATE_FORMAT(new.achievement_date,'%Y-%m') AND bat_kpi_id=new.bat_kpi_id AND target_type=new.target_type AND target_ref_id=new.target_ref_id LIMIT 1; 
+
+END;
+
+
+DROP TRIGGERIF EXISTS `afr_insert_company_calender`$$
+
+CREATE
+    TRIGGER `afr_insert_company_calender` AFTER INSERT ON `hr_company_calendars` 
+    FOR EACH ROW BEGIN
+ CALL proc_company_calendar_config(new.date_is, new.bat_company_id, new.day_status);
+END;
+
+
+CREATE
+    TRIGGER `afr_insert_yearly_leave_policy` AFTER INSERT ON `hr_yearly_leave_policys` 
+    FOR EACH ROW BEGIN
+	DECLARE vr_ploicy_name VARCHAR(100);
+	DECLARE vr_ploicy_year YEAR;
+	DECLARE vr_ploicy_days INT;
+	DECLARE vr_is_earn_leave BOOLEAN;
+	
+	SET vr_ploicy_name = new.hr_yearly_leave_policys_name;
+	SET vr_ploicy_days = new.policy_leave_days;
+	SET vr_ploicy_year = new.hr_yearly_leave_policys_year;
+	SET vr_is_earn_leave = new.is_earn_leave;
+	DELETE FROM hr_yearly_leave_balances WHERE hr_yearly_leave_balances_year=vr_ploicy_year AND hr_yearly_leave_policys_name=vr_ploicy_name AND bat_company_id=new.bat_company_id;
+	
+INSERT INTO hr_yearly_leave_balances (hr_yearly_leave_balances_year,hr_yearly_leave_policys_name,bat_company_id,sys_users_id,policy_days,balance_leaves,is_earn_leave)
+	 (SELECT vr_ploicy_year,vr_ploicy_name,bat_company_id,id,vr_ploicy_days,vr_ploicy_days,vr_is_earn_leave FROM sys_users WHERE bat_company_id=new.bat_company_id AND sys_users.status IN("Active","Probation") AND sys_users.is_employee=1);
+END;
+
+
+CREATE
+    TRIGGER `afr_update_company_calender` AFTER UPDATE ON `hr_company_calendars` 
+    FOR EACH ROW BEGIN
+ CALL proc_company_calendar_config(new.date_is, new.bat_company_id, new.day_status);
+END;
+
+
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `afr_update_leave_repord` AFTER UPDATE ON `hr_leave_records` 
+    FOR EACH ROW BEGIN
+DECLARE vr_total_leaves INT;
+IF new.leave_status IN(64,87) THEN
+	SELECT IFNULL(SUM(leave_days),0) INTO vr_total_leaves  FROM hr_leave_records WHERE sys_users_id=new.sys_users_id  AND leave_types=new.leave_types AND YEAR(start_date)=YEAR(CURRENT_DATE()) AND hr_leave_records.leave_status=64;
+	UPDATE hr_yearly_leave_balances SET enjoyed_leaves=vr_total_leaves,balance_leaves=(IFNULL(policy_days,0)-vr_total_leaves) WHERE sys_users_id=new.sys_users_id AND hr_yearly_leave_policys_name=new.leave_types AND hr_yearly_leave_balances_year=YEAR(CURRENT_DATE());
+END IF;
+END;
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `afr_update_yearly_leave_policy` AFTER UPDATE ON `hr_yearly_leave_policys` 
+    FOR EACH ROW BEGIN
+	DECLARE vr_ploicy_name VARCHAR(100);
+	DECLARE vr_ploicy_year YEAR;
+	DECLARE vr_ploicy_days INT;
+	DECLARE vr_is_earn_leave BOOLEAN;
+	
+	SET vr_ploicy_name = old.hr_yearly_leave_policys_name;
+	SET vr_ploicy_days = new.policy_leave_days;
+	SET vr_ploicy_year = old.hr_yearly_leave_policys_year;
+	SET vr_is_earn_leave = new.is_earn_leave;
+	DELETE FROM hr_yearly_leave_balances WHERE hr_yearly_leave_balances_year=vr_ploicy_year AND hr_yearly_leave_policys_name=vr_ploicy_name AND bat_company_id=old.bat_company_id;
+	INSERT INTO hr_yearly_leave_balances (hr_yearly_leave_balances_year,hr_yearly_leave_policys_name,bat_company_id,sys_users_id,policy_days,balance_leaves,is_earn_leave)
+	 (SELECT vr_ploicy_year,vr_ploicy_name,bat_company_id,id,vr_ploicy_days,vr_ploicy_days,vr_is_earn_leave FROM sys_users WHERE bat_company_id=new.bat_company_id AND sys_users.status IN("Active","Probation") AND sys_users.is_employee=1);
+END;
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `after_delete_component` BEFORE DELETE ON `hr_grade_components` 
+    FOR EACH ROW BEGIN
+   UPDATE hr_emp_grades
+   SET grade_addition_amount = hr_emp_grades.grade_addition_amount  - IFNULL(OLD.addition_amount, 0) ,  
+          grade_deduction_amount = hr_emp_grades.grade_deduction_amount  - IFNULL(OLD.deduction_amount, 0)
+   WHERE hr_emp_grades.hr_emp_grades_id = OLD.hr_emp_grades_id;
+END;
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `bfr_delete_daily_acheivement` BEFORE DELETE ON `bat_daily_kpi_achievements` 
+    FOR EACH ROW BEGIN
+
+/* return single row limit only for exception  SR Achievement*/
+UPDATE bat_kpi_target_detail SET target_achive=(IFNULL(target_achive,0)-old.daily_achievement) WHERE user_code=old.sr_user_code AND target_month=DATE_FORMAT(old.achievement_date,'%Y-%m') AND bat_kpi_id=old.bat_kpi_id
+AND target_type=old.target_type AND target_ref_id=old.target_ref_id LIMIT 1;
+ 
+/* return single row limit only for exception SS Achievement */
+UPDATE bat_kpi_target_detail SET target_achive=(IFNULL(target_achive,0)-old.daily_achievement) WHERE user_code=old.ss_user_code AND target_month=DATE_FORMAT(old.achievement_date,'%Y-%m') AND bat_kpi_id=old.bat_kpi_id AND target_type=old.target_type AND target_ref_id=old.target_ref_id LIMIT 1; 
+
+END;
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `bfr_ins_hr_monthly_salary_wages` BEFORE INSERT ON `hr_monthly_salary_wages` 
+    FOR EACH ROW BEGIN
+	DECLARE vr_earned_amount DECIMAL(10,2);
+	DECLARE vr_deduct_amount DECIMAL(10,2);
+	DECLARE vr_net_salary DECIMAL(10,2);
+	DECLARE vr_ot_rate DECIMAL(10,2);
+	DECLARE vr_absent_deduct_rate DECIMAL(10,2);
+	DECLARE vr_pf_amount_employee DECIMAL(10,2);
+	
+	SET vr_ot_rate = IFNULL(new.basic_salary,0)/208;
+	SET vr_absent_deduct_rate = 0;
+	
+	SET new.ot_rate = vr_ot_rate;
+	SET new.offday_ot_rate = vr_ot_rate;
+	
+	SET new.ot_payable = (IFNULL(new.ot_hours,0)+IFNULL(new.ot_extra_hours,0))*IFNULL(new.ot_rate,0);
+	SET new.offday_ot_payable = IFNULL(new.offday_ot_hours,0)*IFNULL(new.offday_ot_rate,0);
+	
+	SET new.absent_deduction = vr_absent_deduct_rate*(IFNULL(new.absent_days,0)+IFNULL(new.late_absent_days,0));
+	SET new.earn_variable_salary= (new.target_achive_ratio * new.target_variable_salary)/100;
+	SET vr_earned_amount = (IFNULL(new.gross,0)+IFNULL(new.attendance_bonus,0)+IFNULL(new.ot_payable,0)+IFNULL(new.offday_ot_payable,0)+IFNULL(new.arrear,0)+IFNULL(new.other_conveyance,0)+IFNULL(new.earn_variable_salary,0));
+	SET vr_deduct_amount = (IFNULL(new.absent_deduction,0)+IFNULL(new.advance_deduction,0)+IFNULL(new.other_deduction,0)+IFNULL(new.stamp_amount,0)+IFNULL(new.card_lost_deduction,0)+new.pf_amount_employee+new.insurance_amount);
+	
+ 
+	 IF new.employment_type ='Separated' THEN
+     SET new.earned_salary = (vr_earned_amount / 30) * new.payable_days;
+ELSE
+       SET new.earned_salary = vr_earned_amount;
+END IF;
+SET vr_net_salary = new.earned_salary - vr_deduct_amount;
+	SET new.net_payable = vr_net_salary;
+END;
+
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `bfr_insert_attendance` BEFORE INSERT ON `hr_emp_attendance` 
+    FOR EACH ROW BEGIN
+
+IF new.shift_day_status !='R' THEN
+	SET new.daily_status = new.shift_day_status;
+	SET new.in_time = NULL;
+	SET new.out_time = NULL;
+ELSE
+	SET new.daily_status = 'P';
+END IF;
+END;
+
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `bfr_update_attendance` BEFORE UPDATE ON `hr_emp_attendance` 
+    FOR EACH ROW BEGIN 
+    DECLARE vr_leave_day INT;
+	DECLARE vr_shift_status VARCHAR(5);
+	DECLARE vr_atten_status VARCHAR(5);
+	DECLARE vr_hourly_hour DECIMAL(5,2);
+	DECLARE vr_max_late_time TIME;
+	DECLARE vr_min_out_time TIME;
+	
+	SET vr_shift_status = new.shift_day_status;
+	
+	IF TIME(new.in_time) !='' OR TIME(new.out_time) !='' THEN
+		SELECT option_value INTO vr_max_late_time FROM sys_system_settings WHERE option_key='max_late_time';
+		SELECT option_value INTO vr_min_out_time FROM sys_system_settings WHERE option_key='min_out_time';
+	
+		IF vr_shift_status = 'W' THEN
+			SET vr_atten_status = 'W';
+		ELSEIF vr_shift_status = 'H' THEN
+			SET vr_atten_status = 'H';
+		ELSE
+			IF TIMESTAMPDIFF(MINUTE,CONCAT(new.day_is,' ',new.shift_start_time),new.in_time)>vr_max_late_time THEN
+				SET vr_atten_status = 'L';
+			ELSEIF TIMESTAMPDIFF(MINUTE,new.out_time,CONCAT(new.day_is,' ',new.shift_end_time))>vr_min_out_time THEN
+				SET vr_atten_status = 'EO';
+			ELSE
+				SET vr_atten_status = 'P';
+			END IF;
+		END IF;
+	ELSE
+		IF vr_shift_status = 'W' THEN
+			SET vr_atten_status = 'W';
+		ELSEIF vr_shift_status = 'H' THEN
+			SET vr_atten_status = 'H';
+		ELSE
+			SELECT COUNT(*) INTO vr_leave_day FROM hr_leave_records WHERE sys_users_id=new.sys_users_id AND new.day_is BETWEEN start_date AND to_date;
+			IF vr_leave_day >0 THEN
+				SET vr_atten_status = 'Lv';
+			ELSE
+				SET vr_atten_status = 'A';
+			END IF;
+		END IF;
+	END IF;
+	
+	SET new.daily_status = vr_atten_status;
+END;
+
+
+
+CREATE
+    /*!50017 DEFINER = 'root'@'%' */
+    TRIGGER `bfr_update_hr_monthly_salary_wages` BEFORE UPDATE ON `hr_monthly_salary_wages` 
+    FOR EACH ROW BEGIN
+	DECLARE vr_earned_amount DECIMAL(10,2);
+	DECLARE vr_deduct_amount DECIMAL(10,2);
+	DECLARE vr_net_salary DECIMAL(10,2);
+	DECLARE vr_ot_rate DECIMAL(10,2);
+	DECLARE vr_absent_deduct_rate DECIMAL(10,2);
+	DECLARE vr_pf_amount_employee DECIMAL(10,2);
+	
+	SET vr_ot_rate = IFNULL(new.basic_salary,0)/208;
+	SET vr_absent_deduct_rate = 0;
+	
+	SET new.ot_rate = vr_ot_rate;
+	SET new.offday_ot_rate = vr_ot_rate;
+	
+	SET new.ot_payable = (IFNULL(new.ot_hours,0)+IFNULL(new.ot_extra_hours,0))*IFNULL(new.ot_rate,0);
+	SET new.offday_ot_payable = IFNULL(new.offday_ot_hours,0)*IFNULL(new.offday_ot_rate,0);
+	
+	SET new.absent_deduction = vr_absent_deduct_rate*(IFNULL(new.absent_days,0)+IFNULL(new.late_absent_days,0));
+	SET new.earn_variable_salary= (new.target_achive_ratio * new.target_variable_salary)/100;
+	SET vr_earned_amount = (IFNULL(new.gross,0)+IFNULL(new.attendance_bonus,0)+IFNULL(new.ot_payable,0)+IFNULL(new.offday_ot_payable,0)+IFNULL(new.arrear,0)+IFNULL(new.other_conveyance,0)+IFNULL(new.earn_variable_salary,0));
+	SET vr_deduct_amount = (IFNULL(new.absent_deduction,0)+IFNULL(new.advance_deduction,0)+IFNULL(new.other_deduction,0)+IFNULL(new.stamp_amount,0)+IFNULL(new.card_lost_deduction,0)+new.pf_amount_employee+new.insurance_amount);
+	
+ 
+	 IF new.employment_type ='Separated' THEN
+     SET new.earned_salary = (vr_earned_amount / 30) * new.payable_days;
+ELSE
+       SET new.earned_salary = vr_earned_amount;
+END IF;
+SET vr_net_salary = new.earned_salary - vr_deduct_amount;
+	SET new.net_payable = vr_net_salary;
+END;

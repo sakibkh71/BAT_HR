@@ -1,0 +1,15 @@
+{
+    "userconfig": {
+        "usernameminlength" : "8",
+        "usernamemaxlength" : "50",
+        "maximumloginsameuser": "NULL",
+        "maximumloginattempt":"5",
+        "loginattemptresettime":"15",
+        "loginsecuritycode":"NULL",
+        "sessiontime":"30",
+        "passwordtype":"easy",
+        "passwordexpireduration":"0",
+        "lastusedpassword":"NULL",
+        "bgclass":"blue"
+    }
+}

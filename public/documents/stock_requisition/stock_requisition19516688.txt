@@ -1,0 +1,1224 @@
+[2019-02-14 12:04:05.922] [033908] [srcil] [MYSQL]
+SHOW VARIABLES LIKE 'lower_case_%'
+
+[2019-02-14 12:04:05.985] [033908] [srcil] [MYSQL]
+SHOW VARIABLES LIKE 'profiling'
+
+[2019-02-14 12:04:05.988] [033908] [srcil] [MYSQL]
+SHOW DATABASES
+
+[2019-02-14 12:04:07.016] [033909] [srcil] [MYSQL]
+SELECT @@character_set_database, @@collation_database
+
+[2019-02-14 12:04:07.029] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 12:19:09.108] [033908] [srcil] [MYSQL]
+SHOW CHARACTER SET
+
+[2019-02-14 12:19:09.133] [033908] [srcil] [MYSQL]
+SHOW COLLATION
+
+[2019-02-14 12:19:09.442] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 12:19:09.658] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'products_received'
+
+[2019-02-14 12:19:09.693] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:09.703] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'products_received' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 12:19:09.740] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `products_received`
+
+[2019-02-14 12:19:09.778] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:09.780] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='products_received' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 12:19:09.784] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `products_received`
+
+[2019-02-14 12:19:09.811] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='products_received'
+
+[2019-02-14 12:19:09.815] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:20.527] [033909] [srcil] [MYSQL]
+ALTER TABLE `products_received`
+MODIFY COLUMN `warehouses_id`  int(10) NULL COMMENT 'foreign key of warehouse' AFTER `products_received_code`
+
+[2019-02-14 12:19:20.570] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'products_received'
+
+[2019-02-14 12:19:20.572] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:20.574] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'products_received' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 12:19:20.577] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `products_received`
+
+[2019-02-14 12:19:20.580] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:20.581] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='products_received' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 12:19:20.585] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `products_received`
+
+[2019-02-14 12:19:20.587] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='products_received'
+
+[2019-02-14 12:19:20.591] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:20.634] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 12:19:45.530] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'products_received'
+
+[2019-02-14 12:19:45.532] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:45.534] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'products_received' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 12:19:45.537] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `products_received`
+
+[2019-02-14 12:19:45.540] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:45.541] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='products_received' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 12:19:45.545] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `products_received`
+
+[2019-02-14 12:19:45.547] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='products_received'
+
+[2019-02-14 12:19:45.550] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:19:45.567] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 12:21:09.829] [033985] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'products_received'
+
+[2019-02-14 12:21:09.831] [033985] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 12:21:09.833] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:21:09.877] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 12:21:09.917] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 12:21:28.397] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 12:21:28.400] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 12:21:41.485] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 12:21:41.488] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 12:23:44.344] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 12:23:44.392] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'products_received'
+
+[2019-02-14 12:23:44.394] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:23:44.395] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'products_received' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 12:23:44.398] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `products_received`
+
+[2019-02-14 12:23:44.400] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:23:44.402] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='products_received' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 12:23:44.405] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `products_received`
+
+[2019-02-14 12:23:44.406] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='products_received'
+
+[2019-02-14 12:23:44.410] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:29:52.962] [034062] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'products_in_stocks'
+
+[2019-02-14 12:29:52.964] [034062] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 12:29:52.965] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_in_stocks`
+
+[2019-02-14 12:29:53.010] [034062] [srcil] [MYSQL]
+SELECT * FROM `products_in_stocks` LIMIT 0, 1000
+
+[2019-02-14 12:29:53.012] [034062] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_in_stocks`
+
+[2019-02-14 12:30:04.026] [034065] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'product_stock_log'
+
+[2019-02-14 12:30:04.028] [034065] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 12:30:04.030] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `product_stock_log`
+
+[2019-02-14 12:30:04.072] [034065] [srcil] [MYSQL]
+SELECT * FROM `product_stock_log` LIMIT 0, 1000
+
+[2019-02-14 12:30:04.074] [034065] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`product_stock_log`
+
+[2019-02-14 12:38:05.783] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 12:38:05.786] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 12:39:00.288] [033909] [srcil] [MYSQL]
+ALTER TABLE `products_received`
+MODIFY COLUMN `warehouses_id`  int(10) NOT NULL COMMENT 'foreign key of warehouse' AFTER `products_received_code`
+
+[2019-02-14 12:39:00.327] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'products_received'
+
+[2019-02-14 12:39:00.329] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:39:00.330] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'products_received' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 12:39:00.333] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `products_received`
+
+[2019-02-14 12:39:00.335] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:39:00.337] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='products_received' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 12:39:00.341] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `products_received`
+
+[2019-02-14 12:39:00.342] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='products_received'
+
+[2019-02-14 12:39:00.346] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `products_received`
+
+[2019-02-14 12:39:00.403] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 12:50:04.403] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 12:50:04.407] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 12:50:12.522] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 12:50:12.526] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 13:03:21.621] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 13:03:21.624] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 13:03:34.761] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 13:03:34.765] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 13:29:41.805] [034434] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'items'
+
+[2019-02-14 13:29:41.807] [034434] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:29:41.808] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `items`
+
+[2019-02-14 13:29:41.852] [034434] [srcil] [MYSQL]
+SELECT * FROM `items` LIMIT 0, 1000
+
+[2019-02-14 13:29:41.862] [034434] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`items`
+
+[2019-02-14 13:37:29.527] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 13:37:29.532] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 13:37:36.270] [034540] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'purchase_cs'
+
+[2019-02-14 13:37:36.273] [034540] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:37:36.274] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `purchase_cs`
+
+[2019-02-14 13:37:36.320] [034540] [srcil] [MYSQL]
+SELECT * FROM `purchase_cs` LIMIT 0, 1000
+
+[2019-02-14 13:37:36.324] [034540] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`purchase_cs`
+
+[2019-02-14 13:38:31.547] [034540] [srcil] [MYSQL]
+SELECT * FROM `purchase_cs` WHERE `purchase_orders_code` LIKE '%PO-19-100009%' LIMIT 0, 1000
+
+[2019-02-14 13:38:31.549] [034540] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`purchase_cs`
+
+[2019-02-14 13:39:12.848] [034540] [srcil] [MYSQL]
+SELECT * FROM `purchase_cs` WHERE `purchase_orders_code` LIKE '%PO-19-100009%' LIMIT 0, 1000
+
+[2019-02-14 13:39:12.851] [034540] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`purchase_cs`
+
+[2019-02-14 13:40:53.345] [034540] [srcil] [MYSQL]
+SELECT * FROM `purchase_cs` WHERE `purchase_orders_code` LIKE '%PO-19-100009%' LIMIT 0, 1000
+
+[2019-02-14 13:40:53.348] [034540] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`purchase_cs`
+
+[2019-02-14 13:40:54.159] [034540] [srcil] [MYSQL]
+SELECT * FROM `purchase_cs` WHERE `purchase_orders_code` LIKE '%PO-19-100009%' LIMIT 0, 1000
+
+[2019-02-14 13:40:54.163] [034540] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`purchase_cs`
+
+[2019-02-14 13:41:28.761] [033985] [srcil] [MYSQL]
+SELECT * FROM `products_received` LIMIT 0, 1000
+
+[2019-02-14 13:41:28.766] [033985] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`products_received`
+
+[2019-02-14 13:45:47.448] [034636] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 13:45:47.450] [034636] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:45:47.453] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 13:45:47.499] [034636] [srcil] [MYSQL]
+SELECT * FROM `stock_requisition` LIMIT 0, 1000
+
+[2019-02-14 13:45:47.501] [034636] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`stock_requisition`
+
+[2019-02-14 13:45:49.382] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:45:49.427] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 13:45:49.429] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 13:45:49.431] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'stock_requisition' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 13:45:49.433] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `stock_requisition`
+
+[2019-02-14 13:45:49.437] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 13:45:49.438] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='stock_requisition' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 13:45:49.444] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `stock_requisition`
+
+[2019-02-14 13:45:49.446] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='stock_requisition'
+
+[2019-02-14 13:45:49.449] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 13:54:19.432] [034663] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'hr_emp_sections'
+
+[2019-02-14 13:54:19.440] [034663] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:54:19.442] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_sections`
+
+[2019-02-14 13:54:19.498] [034663] [srcil] [MYSQL]
+SELECT * FROM `hr_emp_sections` LIMIT 0, 1000
+
+[2019-02-14 13:54:19.499] [034663] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`hr_emp_sections`
+
+[2019-02-14 13:54:56.652] [034666] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'hr_emp_grades'
+
+[2019-02-14 13:54:56.654] [034666] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:54:56.656] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_grades`
+
+[2019-02-14 13:54:56.699] [034666] [srcil] [MYSQL]
+SELECT * FROM `hr_emp_grades` LIMIT 0, 1000
+
+[2019-02-14 13:54:56.702] [034666] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`hr_emp_grades`
+
+[2019-02-14 13:56:09.724] [034667] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'hr_employee_record_logs'
+
+[2019-02-14 13:56:09.727] [034667] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:56:09.728] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_employee_record_logs`
+
+[2019-02-14 13:56:09.775] [034667] [srcil] [MYSQL]
+SELECT * FROM `hr_employee_record_logs` LIMIT 0, 1000
+
+[2019-02-14 13:56:09.777] [034667] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`hr_employee_record_logs`
+
+[2019-02-14 13:56:12.049] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:56:12.092] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'hr_employee_record_logs'
+
+[2019-02-14 13:56:12.094] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_employee_record_logs`
+
+[2019-02-14 13:56:12.095] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'hr_employee_record_logs' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 13:56:12.098] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `hr_employee_record_logs`
+
+[2019-02-14 13:56:12.100] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_employee_record_logs`
+
+[2019-02-14 13:56:12.102] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='hr_employee_record_logs' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 13:56:12.105] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `hr_employee_record_logs`
+
+[2019-02-14 13:56:12.106] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='hr_employee_record_logs'
+
+[2019-02-14 13:56:12.109] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_employee_record_logs`
+
+[2019-02-14 13:57:51.502] [034668] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_users'
+
+[2019-02-14 13:57:51.505] [034668] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:57:51.506] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 13:57:51.554] [034668] [srcil] [MYSQL]
+SELECT * FROM `sys_users` LIMIT 0, 1000
+
+[2019-02-14 13:57:51.559] [034668] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_users`
+
+[2019-02-14 13:57:53.446] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 13:57:53.490] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_users'
+
+[2019-02-14 13:57:53.491] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 13:57:53.494] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'sys_users' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 13:57:53.497] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `sys_users`
+
+[2019-02-14 13:57:53.502] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 13:57:53.505] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='sys_users' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 13:57:53.515] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `sys_users`
+
+[2019-02-14 13:57:53.517] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='sys_users'
+
+[2019-02-14 13:57:53.520] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 14:05:37.769] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 14:05:37.814] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'hr_emp_grades'
+
+[2019-02-14 14:05:37.816] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_grades`
+
+[2019-02-14 14:05:37.817] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'hr_emp_grades' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 14:05:37.820] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `hr_emp_grades`
+
+[2019-02-14 14:05:37.823] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_grades`
+
+[2019-02-14 14:05:37.824] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='hr_emp_grades' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 14:05:37.827] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `hr_emp_grades`
+
+[2019-02-14 14:05:37.829] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='hr_emp_grades'
+
+[2019-02-14 14:05:37.832] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_grades`
+
+[2019-02-14 16:03:11.680] [034998] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'purchase_requisitions'
+
+[2019-02-14 16:03:11.683] [034998] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:03:11.685] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `purchase_requisitions`
+
+[2019-02-14 16:03:11.731] [034998] [srcil] [MYSQL]
+SELECT * FROM `purchase_requisitions` LIMIT 0, 1000
+
+[2019-02-14 16:03:11.733] [034998] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`purchase_requisitions`
+
+[2019-02-14 16:03:13.562] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:03:13.608] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'purchase_requisitions'
+
+[2019-02-14 16:03:13.610] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `purchase_requisitions`
+
+[2019-02-14 16:03:13.612] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'purchase_requisitions' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 16:03:13.614] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `purchase_requisitions`
+
+[2019-02-14 16:03:13.617] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `purchase_requisitions`
+
+[2019-02-14 16:03:13.618] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='purchase_requisitions' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 16:03:13.622] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `purchase_requisitions`
+
+[2019-02-14 16:03:13.623] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='purchase_requisitions'
+
+[2019-02-14 16:03:13.626] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `purchase_requisitions`
+
+[2019-02-14 16:09:16.077] [033909] [srcil] [MYSQL]
+ALTER TABLE `stock_requisition`
+ADD COLUMN `requisition_type`  enum('Transfer','Office use') NULL DEFAULT 'Office use' AFTER `requisition_status`,
+ADD COLUMN `warehouses_id`  int(10) NULL AFTER `requisition_type`
+
+[2019-02-14 16:09:16.116] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 16:09:16.119] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 16:09:16.122] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'stock_requisition' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 16:09:16.126] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `stock_requisition`
+
+[2019-02-14 16:09:16.130] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 16:09:16.132] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='stock_requisition' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 16:09:16.139] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `stock_requisition`
+
+[2019-02-14 16:09:16.142] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='stock_requisition'
+
+[2019-02-14 16:09:16.145] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 16:09:16.207] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 16:12:36.886] [035042] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_menus'
+
+[2019-02-14 16:12:36.888] [035042] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:12:36.889] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_menus`
+
+[2019-02-14 16:12:36.936] [035042] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` LIMIT 0, 1000
+
+[2019-02-14 16:12:36.939] [035042] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_menus`
+
+[2019-02-14 16:13:09.363] [035042] [srcil] [MYSQL]
+INSERT INTO `sys_menus` (`name`, `menus_type`) VALUES ('Warehouse Requisition', 'Sub')
+
+[2019-02-14 16:13:09.364] [035042] [srcil] [MYSQL]
+1364 - Field 'parent_menus_id' doesn't have a default value
+
+[2019-02-14 16:13:45.110] [035042] [srcil] [MYSQL]
+INSERT INTO `sys_menus` (`name`, `menus_type`, `parent_menus_id`, `modules_id`, `icon_class`, `sort_number`) VALUES ('Warehouse Requisition', 'Sub', '63', '7', 'fa fa-bars', '2')
+
+[2019-02-14 16:13:45.112] [035042] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='132') LIMIT 1
+
+[2019-02-14 16:14:13.549] [035042] [srcil] [MYSQL]
+UPDATE `sys_menus` SET `menu_url`='stock-receive' WHERE (`id`='132')
+
+[2019-02-14 16:14:13.550] [035042] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='132') LIMIT 1
+
+[2019-02-14 16:14:36.884] [035045] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_event'
+
+[2019-02-14 16:14:36.886] [035045] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:14:36.887] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_event`
+
+[2019-02-14 16:14:36.936] [035045] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_event` LIMIT 0, 1000
+
+[2019-02-14 16:14:36.937] [035045] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_event`
+
+[2019-02-14 16:14:44.890] [035046] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_items'
+
+[2019-02-14 16:14:44.892] [035046] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:14:44.894] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_items`
+
+[2019-02-14 16:14:44.947] [035046] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_items` LIMIT 0, 1000
+
+[2019-02-14 16:14:44.949] [035046] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_items`
+
+[2019-02-14 16:14:49.212] [035047] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_items_users'
+
+[2019-02-14 16:14:49.214] [035047] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:14:49.215] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_items_users`
+
+[2019-02-14 16:14:49.264] [035047] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_items_users` LIMIT 0, 1000
+
+[2019-02-14 16:14:49.266] [035047] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_items_users`
+
+[2019-02-14 16:15:00.271] [035048] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_menu_users'
+
+[2019-02-14 16:15:00.273] [035048] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:15:00.276] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_menu_users`
+
+[2019-02-14 16:15:00.332] [035048] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_menu_users` LIMIT 0, 1000
+
+[2019-02-14 16:15:00.333] [035048] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_menu_users`
+
+[2019-02-14 16:15:24.765] [035049] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_modules'
+
+[2019-02-14 16:15:24.767] [035049] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:15:24.769] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_modules`
+
+[2019-02-14 16:15:24.821] [035049] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_modules` LIMIT 0, 1000
+
+[2019-02-14 16:15:24.822] [035049] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_modules`
+
+[2019-02-14 16:15:37.335] [035049] [srcil] [MYSQL]
+INSERT INTO `sys_privilege_modules` (`users_id`) VALUES ('26')
+
+[2019-02-14 16:15:37.336] [035049] [srcil] [MYSQL]
+1364 - Field 'modules_id' doesn't have a default value
+
+[2019-02-14 16:15:43.047] [035049] [srcil] [MYSQL]
+INSERT INTO `sys_privilege_modules` (`users_id`) VALUES (NULL)
+
+[2019-02-14 16:15:43.048] [035049] [srcil] [MYSQL]
+1048 - Column 'users_id' cannot be null
+
+[2019-02-14 16:15:44.851] [035049] [srcil] [MYSQL]
+INSERT INTO `sys_privilege_modules` (`users_id`) VALUES (NULL)
+
+[2019-02-14 16:15:44.853] [035049] [srcil] [MYSQL]
+1048 - Column 'users_id' cannot be null
+
+[2019-02-14 16:15:48.548] [035049] [srcil] [MYSQL]
+INSERT INTO `sys_privilege_modules` (`users_id`) VALUES (NULL)
+
+[2019-02-14 16:15:48.549] [035049] [srcil] [MYSQL]
+1048 - Column 'users_id' cannot be null
+
+[2019-02-14 16:15:55.127] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 16:15:58.048] [035050] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_menus'
+
+[2019-02-14 16:15:58.050] [035050] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:15:58.052] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_menus`
+
+[2019-02-14 16:15:58.101] [035050] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_menus` LIMIT 0, 1000
+
+[2019-02-14 16:15:58.104] [035050] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_menus`
+
+[2019-02-14 16:16:15.021] [035050] [srcil] [MYSQL]
+INSERT INTO `sys_privilege_menus` (`menus_id`, `user_levels_id`) VALUES ('132', '26')
+
+[2019-02-14 16:16:15.023] [035050] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_menus` WHERE (`menus_id`='132') AND (`user_levels_id`='26') LIMIT 1
+
+[2019-02-14 16:16:28.451] [035052] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_users'
+
+[2019-02-14 16:16:28.453] [035052] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:16:28.455] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 16:16:28.515] [035052] [srcil] [MYSQL]
+SELECT * FROM `sys_users` LIMIT 0, 1000
+
+[2019-02-14 16:16:28.520] [035052] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_users`
+
+[2019-02-14 16:16:47.297] [035053] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_user_levels'
+
+[2019-02-14 16:16:47.300] [035053] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:16:47.302] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_user_levels`
+
+[2019-02-14 16:16:47.360] [035053] [srcil] [MYSQL]
+SELECT * FROM `sys_user_levels` LIMIT 0, 1000
+
+[2019-02-14 16:16:47.362] [035053] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_user_levels`
+
+[2019-02-14 16:18:26.359] [035054] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_levels'
+
+[2019-02-14 16:18:26.361] [035054] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:18:26.363] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_levels`
+
+[2019-02-14 16:18:26.411] [035054] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_levels` LIMIT 0, 1000
+
+[2019-02-14 16:18:26.412] [035054] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_levels`
+
+[2019-02-14 16:19:26.797] [035055] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_items'
+
+[2019-02-14 16:19:26.799] [035055] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:19:26.800] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_items`
+
+[2019-02-14 16:19:26.856] [035055] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_items` LIMIT 0, 1000
+
+[2019-02-14 16:19:26.858] [035055] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_items`
+
+[2019-02-14 16:19:39.486] [035056] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_generated_id'
+
+[2019-02-14 16:19:39.488] [035056] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:19:39.489] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_generated_id`
+
+[2019-02-14 16:19:39.541] [035056] [srcil] [MYSQL]
+SELECT * FROM `sys_generated_id` LIMIT 0, 1000
+
+[2019-02-14 16:19:39.549] [035056] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_generated_id`
+
+[2019-02-14 16:19:50.986] [035057] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_email_outbox'
+
+[2019-02-14 16:19:50.988] [035057] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:19:50.989] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_email_outbox`
+
+[2019-02-14 16:19:51.054] [035057] [srcil] [MYSQL]
+SELECT * FROM `sys_email_outbox` LIMIT 0, 1000
+
+[2019-02-14 16:19:51.056] [035057] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_email_outbox`
+
+[2019-02-14 16:20:20.472] [035059] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_privilege_levels'
+
+[2019-02-14 16:20:20.474] [035059] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 16:20:20.477] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_privilege_levels`
+
+[2019-02-14 16:20:20.530] [035059] [srcil] [MYSQL]
+SELECT * FROM `sys_privilege_levels` LIMIT 0, 1000
+
+[2019-02-14 16:20:20.531] [035059] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_privilege_levels`
+
+[2019-02-14 16:20:25.495] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 16:21:10.789] [035042] [srcil] [MYSQL]
+UPDATE `sys_menus` SET `parent_menus_id`='83' WHERE (`id`='132')
+
+[2019-02-14 16:21:10.790] [035042] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='132') LIMIT 1
+
+[2019-02-14 16:22:45.912] [035042] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE `modules_id` = '7' LIMIT 0, 1000
+
+[2019-02-14 16:22:45.914] [035042] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_menus`
+
+[2019-02-14 16:23:23.843] [035042] [srcil] [MYSQL]
+UPDATE `sys_menus` SET `name`='Warehouse Requisition', `status`='Active' WHERE (`id`='93')
+
+[2019-02-14 16:23:23.845] [035042] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='93') LIMIT 1
+
+[2019-02-14 16:23:44.801] [035042] [srcil] [MYSQL]
+DELETE FROM `sys_menus` WHERE (`id`='132')
+
+[2019-02-14 16:23:51.188] [035050] [srcil] [MYSQL]
+DELETE FROM `sys_privilege_menus` WHERE (`menus_id`='132') AND (`user_levels_id`='26') LIMIT 1
+
+[2019-02-14 17:08:27.331] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 17:08:27.375] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'hr_employee_record_logs'
+
+[2019-02-14 17:08:27.377] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_employee_record_logs`
+
+[2019-02-14 17:08:27.378] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'hr_employee_record_logs' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 17:08:27.381] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `hr_employee_record_logs`
+
+[2019-02-14 17:08:27.383] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_employee_record_logs`
+
+[2019-02-14 17:08:27.384] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='hr_employee_record_logs' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 17:08:27.387] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `hr_employee_record_logs`
+
+[2019-02-14 17:08:27.389] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='hr_employee_record_logs'
+
+[2019-02-14 17:08:27.392] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_employee_record_logs`
+
+[2019-02-14 17:08:34.095] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 17:08:34.138] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'hr_emp_grades'
+
+[2019-02-14 17:08:34.140] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_grades`
+
+[2019-02-14 17:08:34.142] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'hr_emp_grades' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 17:08:34.144] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `hr_emp_grades`
+
+[2019-02-14 17:08:34.147] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_grades`
+
+[2019-02-14 17:08:34.149] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='hr_emp_grades' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 17:08:34.153] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `hr_emp_grades`
+
+[2019-02-14 17:08:34.155] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='hr_emp_grades'
+
+[2019-02-14 17:08:34.158] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `hr_emp_grades`
+
+[2019-02-14 17:08:38.349] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 17:08:38.393] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_users'
+
+[2019-02-14 17:08:38.394] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 17:08:38.397] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'sys_users' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 17:08:38.399] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `sys_users`
+
+[2019-02-14 17:08:38.403] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 17:08:38.405] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='sys_users' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 17:08:38.413] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `sys_users`
+
+[2019-02-14 17:08:38.415] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='sys_users'
+
+[2019-02-14 17:08:38.417] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_users`
+
+[2019-02-14 17:09:48.423] [035151] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_menus'
+
+[2019-02-14 17:09:48.425] [035151] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 17:09:48.427] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_menus`
+
+[2019-02-14 17:09:48.478] [035151] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` LIMIT 0, 1000
+
+[2019-02-14 17:09:48.482] [035151] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_menus`
+
+[2019-02-14 17:10:03.090] [035151] [srcil] [MYSQL]
+UPDATE `sys_menus` SET `status`='Inactive' WHERE (`id`='93')
+
+[2019-02-14 17:10:03.092] [035151] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='93') LIMIT 1
+
+[2019-02-14 17:10:35.346] [033909] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 17:10:35.389] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 17:10:35.391] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:10:35.393] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'stock_requisition' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 17:10:35.395] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `stock_requisition`
+
+[2019-02-14 17:10:35.398] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:10:35.399] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='stock_requisition' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 17:10:35.404] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `stock_requisition`
+
+[2019-02-14 17:10:35.406] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='stock_requisition'
+
+[2019-02-14 17:10:35.409] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:27:10.307] [033909] [srcil] [MYSQL]
+ALTER TABLE `stock_requisition`
+CHANGE COLUMN `warehouses_id` `from_warehouses_id`  int(10) NULL DEFAULT NULL AFTER `requisition_type`,
+ADD COLUMN `to_warehouses_id`  int(10) NULL AFTER `from_warehouses_id`
+
+[2019-02-14 17:27:10.345] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 17:27:10.347] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:27:10.349] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'stock_requisition' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 17:27:10.352] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `stock_requisition`
+
+[2019-02-14 17:27:10.354] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:27:10.355] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='stock_requisition' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 17:27:10.359] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `stock_requisition`
+
+[2019-02-14 17:27:10.361] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='stock_requisition'
+
+[2019-02-14 17:27:10.364] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:27:10.413] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 17:28:15.452] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 17:28:15.455] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:28:15.457] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'stock_requisition' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 17:28:15.459] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `stock_requisition`
+
+[2019-02-14 17:28:15.462] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:28:15.464] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='stock_requisition' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 17:28:15.469] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `stock_requisition`
+
+[2019-02-14 17:28:15.471] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='stock_requisition'
+
+[2019-02-14 17:28:15.474] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:28:15.489] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 17:32:50.043] [033909] [srcil] [MYSQL]
+ALTER TABLE `stock_requisition`
+DROP COLUMN `from_warehouses_id`,
+MODIFY COLUMN `requisition_type`  enum('Stock Out','Stock In','Office use') CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'Office use' AFTER `requisition_status`,
+CHANGE COLUMN `to_warehouses_id` `warehouses_id`  int(10) NULL DEFAULT NULL AFTER `requisition_type`
+
+[2019-02-14 17:32:50.062] [033909] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 17:32:50.064] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:32:50.066] [033909] [srcil] [MYSQL]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE TABLE_SCHEMA LIKE 'sr_cl' AND NOT ISNULL(PARTITION_NAME) AND TABLE_NAME LIKE 'stock_requisition' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2019-02-14 17:32:50.069] [033909] [srcil] [MYSQL]
+SHOW FULL COLUMNS FROM `stock_requisition`
+
+[2019-02-14 17:32:50.072] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:32:50.073] [033909] [srcil] [MYSQL]
+SELECT * FROM `information_schema`.`columns` WHERE TABLE_NAME='stock_requisition' AND TABLE_SCHEMA='sr_cl'
+
+[2019-02-14 17:32:50.076] [033909] [srcil] [MYSQL]
+SHOW INDEX FROM `stock_requisition`
+
+[2019-02-14 17:32:50.078] [033909] [srcil] [MYSQL]
+SELECT trigger_name, event_manipulation, event_object_table, action_statement, action_timing, DEFINER FROM information_schema.triggers WHERE BINARY event_object_schema='sr_cl' AND BINARY event_object_table='stock_requisition'
+
+[2019-02-14 17:32:50.081] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 17:32:50.099] [033909] [srcil] [MYSQL]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2019-02-14 17:35:20.192] [035247] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_menus'
+
+[2019-02-14 17:35:20.194] [035247] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 17:35:20.195] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_menus`
+
+[2019-02-14 17:35:20.258] [035247] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` LIMIT 0, 1000
+
+[2019-02-14 17:35:20.261] [035247] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_menus`
+
+[2019-02-14 17:35:29.248] [035247] [srcil] [MYSQL]
+UPDATE `sys_menus` SET `status`='Active' WHERE (`id`='93')
+
+[2019-02-14 17:35:29.249] [035247] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='93') LIMIT 1
+
+[2019-02-14 17:35:58.333] [035247] [srcil] [MYSQL]
+UPDATE `sys_menus` SET `menu_url`='create-stock-requisition/Transfer' WHERE (`id`='93')
+
+[2019-02-14 17:35:58.335] [035247] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='93') LIMIT 1
+
+[2019-02-14 17:39:23.965] [035280] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'sys_dropdowns'
+
+[2019-02-14 17:39:23.967] [035280] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 17:39:23.968] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `sys_dropdowns`
+
+[2019-02-14 17:39:24.016] [035280] [srcil] [MYSQL]
+SELECT * FROM `sys_dropdowns` LIMIT 0, 1000
+
+[2019-02-14 17:39:24.020] [035280] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`sys_dropdowns`
+
+[2019-02-14 17:46:19.033] [035247] [srcil] [MYSQL]
+UPDATE `sys_menus` SET `name`='Transfer Requisition' WHERE (`id`='93')
+
+[2019-02-14 17:46:19.034] [035247] [srcil] [MYSQL]
+SELECT * FROM `sys_menus` WHERE (`id`='93') LIMIT 1
+
+[2019-02-14 18:17:12.458] [035415] [srcil] [MYSQL]
+SHOW TABLE STATUS LIKE 'stock_requisition'
+
+[2019-02-14 18:17:12.460] [035415] [srcil] [MYSQL]
+SHOW ENGINES
+
+[2019-02-14 18:17:12.461] [033909] [srcil] [MYSQL]
+SHOW CREATE TABLE `stock_requisition`
+
+[2019-02-14 18:17:12.516] [035415] [srcil] [MYSQL]
+SELECT * FROM `stock_requisition` LIMIT 0, 1000
+
+[2019-02-14 18:17:12.517] [035415] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`stock_requisition`
+
+[2019-02-14 18:22:37.379] [035415] [srcil] [MYSQL]
+SELECT * FROM `stock_requisition` LIMIT 0, 1000
+
+[2019-02-14 18:22:37.381] [035415] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`stock_requisition`
+
+[2019-02-14 18:22:38.111] [035415] [srcil] [MYSQL]
+SELECT * FROM `stock_requisition` LIMIT 0, 1000
+
+[2019-02-14 18:22:38.113] [035415] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`stock_requisition`
+
+[2019-02-14 18:22:38.293] [035415] [srcil] [MYSQL]
+SELECT * FROM `stock_requisition` LIMIT 0, 1000
+
+[2019-02-14 18:22:38.295] [035415] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`stock_requisition`
+
+[2019-02-14 18:23:43.597] [035415] [srcil] [MYSQL]
+SELECT * FROM `stock_requisition` LIMIT 0, 1000
+
+[2019-02-14 18:23:43.600] [035415] [srcil] [MYSQL]
+SHOW COLUMNS FROM `sr_cl`.`stock_requisition`
+
